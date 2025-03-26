@@ -1,0 +1,18 @@
+<div class="flex gap-2 flex-col p-4">
+    <% @entries.each do |day, entries| %>
+        <div class="flex flex-col gap-2">
+            <h3 class="text-2xl font-bold m-2">Entries for <%= day %></h1>
+            <% entries.each do |entry| %>
+                <%= link_to entry_path(entry) do %>
+                    <div class="border flex flex-col gap-2 p-4 m-2 rounded-lg">
+                        <strong><%= entry.meal_type %></strong><br/>
+                        <%= entry.calories %> calories,
+                        <%= entry.proteins %> proteins,
+                        <%= entry.carbohydrates %> carbs,
+                        <%= entry.fats %> fat,
+                    </div>
+            <% end %>
+        <% end %>
+        </div>
+    <% end %>
+</div>

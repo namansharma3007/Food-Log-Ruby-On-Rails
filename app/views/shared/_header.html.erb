@@ -1,0 +1,17 @@
+<nav class="bg-teal-500 p-2 flex justify-center items-center flex-col">
+    <div class="flex items-center">
+        <div class="ml-10 flex items-baseline space-x-4">
+            <%= link_to "Create new entry", new_entry_path, class: "p-2 rounded-lg bg-gray-200 hover:bg-gray-300" %>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <% if content_for(:title)%>
+        <h1 class="text-lg font-semibold text-center mx-4">
+            <%= yield :title%>
+        </h1>
+        <% else %>
+            <h1 class="text-lg font-semibold text-center mx-4">Foodlog</h1>
+        <% end %>
+    </div>
+</nav>

@@ -1,0 +1,46 @@
+<%= form_with(model: entry) do |form| %>
+  <% if entry.errors.any? %>
+    <div class="flex flex-col w-max">
+      <h2 class="p-2 text-white font-semibold bg-red-500"><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+
+      <ul class="p-2 text-red-800 bg-red-100">
+        <% entry.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :meal_type, style: "display: block" %>
+    <%= form.text_field :meal_type %>
+  </div>
+
+  <div>
+    <%= form.label :calories, style: "display: block" %>
+    <%= form.number_field :calories %>
+  </div>
+
+  <div>
+    <%= form.label :proteins, style: "display: block" %>
+    <%= form.number_field :proteins %>
+  </div>
+
+  <div>
+    <%= form.label :carbohydrates, style: "display: block" %>
+    <%= form.number_field :carbohydrates %>
+  </div>
+
+  <div>
+    <%= form.label :fats, style: "display: block" %>
+    <%= form.number_field :fats %>
+  </div>
+  <div>
+    <%= form.label :category, style: "display: block" %>
+    <%= form.select :category_id, Category.all.collect {|u| [u.title, u.id]}, {}, class: "p-2 bg-gray-200 mt-2" %>
+  </div>
+
+  <div>
+    <%= form.submit "Create Entry", class: "bg-blue-500 hover:bg-blue-600 p-2 rounded-lg text-white hover:cursor-pointer mt-10" %>
+  </div>
+<% end %>

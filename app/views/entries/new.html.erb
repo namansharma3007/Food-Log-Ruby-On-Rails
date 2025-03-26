@@ -1,0 +1,10 @@
+<% content_for :title, "New entry" %>
+
+
+<%= render "form", entry: @entry %>
+
+<br>
+
+<div>
+  <%= link_to "Back", entries_path, class: "text-blue-500 hover:underline" %>
+</div>
